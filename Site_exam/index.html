@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>NoDNS | Магазин электроники</title>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="nav-bar">
+            <div class="logo">
+                <h1>NoDNS</h1>
+                <p>Новейшая электроника</p>
+            </div>
+            <div class="toggle">
+                <img src="./images/sun.svg" alt="" class="sun-icon" width="100" height="25">
+                <div class="toggle_btn"></div>
+                <img src="./images/moon.svg" alt="" class="sun-icon" width="100" height="25">
+            </div>
+            <div class="auth-cart">
+                <div class="auth-status" id="authStatus">Не авторизован</div>
+                <button class="btn-outline btn" id="loginBtn">Войти</button>
+                <div class="cart-icon-btn" id="openCartBtn">
+                    Корзина <span id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <div class="toolbar">
+        <div class="filters">
+            <div class="filter-group">
+                <label>Фильтр по цене:</label>
+                <select id="priceFilter">
+                    <option value="all">Все цены</option>
+                    <option value="0-5000">до 5 000 ₽</option>
+                    <option value="5000-20000">5 000 – 20 000 ₽</option>
+                    <option value="20000+">от 20 000 ₽</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>По наличию:</label>
+                <select id="stockFilter">
+                    <option value="all">Все товары</option>
+                    <option value="inStock">В наличии (>0)</option>
+                    <option value="lowStock">Мало (≤5)</option>
+                </select>
+            </div>
+        </div>
+        <div class="sort-group">
+            <span>Сортировать:</span>
+            <select id="sortSelect">
+                <option value="default">По умолчанию</option>
+                <option value="price_asc">Цена по возрастанию</option>
+                <option value="price_desc">Цена по убыванию</option>
+                <option value="stock_asc">По количеству</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="productsContainer" class="products-grid"></div>
+</main>
+
+<footer>@ NoDNS — современные гаджеты.</footer>
+
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <h3>Ваша корзина</h3>
+        <div id="cartItemsList"></div>
+        <div class="total-row" id="cartTotalAmount">Итого: 0 ₽</div>
+        <div class="checkout-area">
+            <button class="btn-outline btn" id="closeCartBtn">Закрыть</button>
+            <button class="btn" id="checkoutBtn">Оформить заказ</button>
+        </div>
+    </div>
+</div>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content login-panel">
+        <h3>Вход в аккаунт</h3>
+        <p style="font-size:0.85rem; margin-bottom: 12px;">(любой логин/пароль)</p>
+        <div class="login-form">
+            <input type="text" id="loginUsername" placeholder="Имя пользователя" autocomplete="off">
+            <input type="password" id="loginPassword" placeholder="Пароль">
+            <button class="btn" id="doLoginBtn" style="width:100%; margin-top:12px;">Войти</button>
+            <button class="btn-outline btn" id="closeLoginBtn" style="width:100%; margin-top:8px;">Отмена</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
