@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>NoDNS | Магазин электроники</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="nav-bar">
+            <div class="logo">
+                <h1>NoDNS</h1>
+                <p>Новейшая электроника</p>
+            </div>
+            <div class="toggle">
+                <i class="fas fa-sun"></i>
+                <div class="toggle_btn"></div>
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="auth-cart">
+                <div class="auth-status" id="authStatus">
+                    <i class="fas fa-user-astronaut"></i> <span id="authName">Гость</span>
+                </div>
+                <button class="logout-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </button>
+                <div class="icon-badge" id="openCartBtn">
+                    <i class="fas fa-basket-shopping"></i> <span>Корзина</span> <span id="cartCount" class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <div class="toolbar">
+        <div class="filters">
+            <div class="filter-group">
+                <label> Цена</label>
+                <select id="priceFilter">
+                    <option value="all">Все цены</option>
+                    <option value="0-5000">до 5 000 ₽</option>
+                    <option value="5000-20000">5 000 – 20 000 ₽</option>
+                    <option value="20000+">от 20 000 ₽</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label> Наличие</label>
+                <select id="stockFilter">
+                    <option value="all">Все товары</option>
+                    <option value="inStock">В наличии (>0)</option>
+                    <option value="lowStock">Мало (≤5)</option>
+                </select>
+            </div>
+        </div>
+        <div class="sort-group">
+            <span><i class="fas fa-arrow-up-wide-short"></i> Сортировка:</span>
+            <select id="sortSelect">
+                <option value="default">По умолчанию</option>
+                <option value="price_asc">Цена по возрастанию</option>
+                <option value="price_desc">Цена по убыванию</option>
+                <option value="stock_asc">По наличию</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="productsContainer" class="products-grid"></div>
+
+    <div id="adminPanel" style="display: none; margin-bottom: 30px;">
+        <div class="admin-card">
+            <h3> JSON товаров (админ)</h3>
+            <div id="jsonDump" class="admin-json"></div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    @ NoDNS — современные гаджеты 
+</footer>
+
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <h3><i class="fas fa-basket-shopping"></i> Ваша корзина</h3>
+        <div id="cartItemsList"></div>
+        <div class="total-row" id="cartTotalAmount">Итого: 0 ₽</div>
+        <div class="checkout-area">
+            <button class="btn-outline btn" id="closeCartBtn"><i class="fas fa-times"></i> Закрыть</button>
+            <button class="btn" id="checkoutBtn"><i class="fas fa-credit-card"></i> Оформить заказ</button>
+        </div>
+    </div>
+</div>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content login-panel">
+        <h3>Вход в аккаунт</h3>
+        <p class="login-hint"><i class="fas fa-info-circle"></i> Любой логин/пароль, админ: логин "admin"</p>
+        <div class="login-form">
+            <input type="text" id="loginUsername" placeholder="Имя пользователя" autocomplete="off">
+            <input type="password" id="loginPassword" placeholder="Пароль">
+            <button class="btn" id="doLoginBtn"><i class="fas fa-sign-in-alt"></i> Войти</button>
+            <button class="btn-outline btn" id="closeLoginBtn"><i class="fas fa-times"></i> Отмена</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
